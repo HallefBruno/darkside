@@ -1,0 +1,40 @@
+<header th:fragment="menubar" data-bs-theme="dark">
+  <nav class="navbar bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/}"><i class="fa-solid fa-z"></i><i class="fa-solid fa-e"></i><i class="fa-solid fa-l"></i><i class="fa-solid fa-o"></i><i class="fa-solid fa-t"></i><i class="fa-solid fa-e"></i></a> <!--<i style="color: red" class="fa-solid fa-skull"></i>-->
+      <form class="d-flex" role="search">
+        <input id="pesquisar" class="form-control me-2" type="text" placeholder="Pesquisar..." aria-label="Pesquisar">
+        <button id="btnPesquisarVideo" class="btn btn-outline-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Darkside menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link invock-gif" th:href="@{/video/page}">Importar</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorias
+              </a>
+              <ul class="dropdown-menu">
+                <th:block th:each="categoria : ${categorias}">
+                  <li><a th:id="${categoria}" class="dropdown-item invock-gif" href="#" th:text="${categoria.value}">Musical</a></li>
+                </th:block>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
